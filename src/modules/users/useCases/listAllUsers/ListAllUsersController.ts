@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import e, { Request, Response } from "express";
 
 import { ListAllUsersUseCase } from "./ListAllUsersUseCase";
 
@@ -6,7 +6,18 @@ class ListAllUsersController {
   constructor(private listAllUsersUseCase: ListAllUsersUseCase) {}
 
   handle(request: Request, response: Response): Response {
-    // Complete aqui
+    const { user_id } = request.headers;
+
+    console.log(typeof user_id === "string");
+
+    try {
+      const listUsers = this.listAllUsersUseCase.execute({ user_id });
+      return response.status(200).send(listUsers);
+    } catch (e) {
+      return response.status(400).json({
+        error: e,
+      });
+    }
   }
 }
 
