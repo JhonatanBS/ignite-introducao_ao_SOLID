@@ -11,10 +11,12 @@
     "paths": {
       "/users": {
         "post": {
-          "tags": ["Users"],
-          "summary": "Create a users",
+          "tags": ["users"],
+          "summary": "Create a new users",
           "description": "Create a new user",
           "requestBody": {
+            "required": true,
+            "description": "Required field to create a new user",
             "content": {
               "application/json": {
                 "schema": {
@@ -23,7 +25,6 @@
                     "name":{"type": "string"},
                     "email":{"type": "string"}
                   },
-                  "description": "Required field to create a new user",
                   "example": {
                     "name": "Diego",
                     "email": "diego@gmail.com"
@@ -38,6 +39,15 @@
               "content": {
                 "application/json":{
                   "schema":{
+                    "type": "object",
+                    "properties": {
+                      "id":{"type": "string"},
+                      "name":{"type": "string"},
+                      "email":{"type": "string"},
+                      "admin":{"type": "boolean"},
+                      "created_at":{"type": "string"},
+                      "updated_at":{"type": "string"}
+                    },
                     "example":{
                       "id": "5826572f-449c-483e-8a93-e002c722b394",
                       "name": "Carlos",
