@@ -1,0 +1,69 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "SOLID",
+      "description": "Introdução ao Solid",
+      "version": "1.0.0",
+      "contact": {
+        "email": "jhonatan@gmail.com"
+      }
+    },
+    "paths": {
+      "/users": {
+        "post": {
+          "tags": ["Users"],
+          "summary": "Create a users",
+          "description": "Create a new user",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name":{"type": "string"},
+                    "email":{"type": "string"}
+                  },
+                  "description": "Required field to create a new user",
+                  "example": {
+                    "name": "Diego",
+                    "email": "diego@gmail.com"
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "201":{
+              "description": "User created successful",
+              "content": {
+                "application/json":{
+                  "schema":{
+                    "example":{
+                      "id": "5826572f-449c-483e-8a93-e002c722b394",
+                      "name": "Carlos",
+                      "admin": false,
+                      "email": "carlos@gmail.com",
+                      "created_at": "2022-09-14T14:26:38.877Z",
+                      "updated_at": "2022-09-14T14:26:38.877Z"
+                    }
+                  }
+                }
+              }
+            },
+            "400":{
+              "description": "Email already exists",
+              "content": {
+                "application/json":{
+                  "schema":{
+                    "example":{
+                      "error": "This email is a already is use"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+}
