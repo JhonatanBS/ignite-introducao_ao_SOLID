@@ -133,6 +133,60 @@
             }
           }
         }
+  
+      },
+      "/users/{user_id}": {
+        "get":{
+          "description": "Returns a specific user",
+          "summary": "Returns a specific user",
+          "tags":["users"],
+          "parameters":[
+            {
+              "name":"user_id",
+              "description": "ID USER",
+              "required": true,
+              "in": "path",
+              "value": "user_id - ID USER",
+              "schema":{"type": "string($uuid)"}
+            }
+          ],
+          "responses":{
+            "200": {
+            "description": "Operation performed successfully",
+            "content":{
+              "application/json":{
+                "schema":{
+                  "properties":{
+                    "id":{"type": "string"}
+                  },
+                  "example":
+                    {
+                      "id": "5826572f-449c-483e-8a93-e002c722b394",
+                      "name": "Carlos",
+                      "admin": false,
+                      "email": "carlos@gmail.com",
+                      "created_at": "2022-09-14T14:26:38.877Z",
+                      "updated_at": "2022-09-14T14:26:38.877Z"
+                    }
+                }
+              }
+            }
+            },
+            "404":{
+              "description": "User not found",
+              "content":{
+                "application/json":{
+                  "schema":{
+                    "properties":{},
+                    "example":{
+                      "error": "User not found"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
      
     }
