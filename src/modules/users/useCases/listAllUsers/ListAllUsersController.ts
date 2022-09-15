@@ -9,7 +9,9 @@ class ListAllUsersController {
     const { user_id } = request.headers;
 
     try {
-      const listUsers = this.listAllUsersUseCase.execute({ user_id: String(user_id) });
+      const listUsers = this.listAllUsersUseCase.execute({
+        user_id: String(user_id),
+      });
       return response.status(200).send(listUsers);
     } catch (e) {
       return response.status(400).json({
