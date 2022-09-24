@@ -62,7 +62,7 @@
             },
             "400":{
               "description": "Email already exists",
-              "co:user_idntent": {
+              "content": {
                 "application/json":{
                   "schema":{
                     "example":{
@@ -84,7 +84,7 @@
               "in": "header",
               "description": "User id comes from parameter",
               "required": true,
-              "schema":{ "type": "string($uuid)"}
+              "schema":{ "type": "string"}
             }
           ],
           "responses":{
@@ -147,7 +147,7 @@
               "required": true,
               "in": "path",
               "value": "user_id - ID USER",
-              "schema":{"type": "string($uuid)"}
+              "schema":{"type": "string"}
             }
           ],
           "responses":{
@@ -198,8 +198,7 @@
               "description": "ID USER",
               "required": true,
               "in": "path",
-              "value": "user_id - ID USER",
-              "schema":{"type": "string($uuid)"}
+              "schema":{"type": "string"}
             }
           ],
           "responses":{
